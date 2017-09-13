@@ -2,7 +2,7 @@
   "family": "awsdevops-api-task-def",
   "containerDefinitions": [
     {
-      "name": "awsdevops-api-task",
+      "name": "awdevops-api-task",
       "portMappings":[
         {
           "containerPort": 3000
