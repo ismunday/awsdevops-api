@@ -35,16 +35,16 @@ jobs:
           paths:
             - app
 
-  test:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/project
-      - run:
-          name: test
-          command: |
-            yarn add nyc
-            yarn test
+  # test:
+  #   <<: *defaults
+  #   steps:
+  #     - attach_workspace:
+  #         at: ~/project
+  #     - run:
+  #         name: test
+  #         command: |
+  #           yarn add nyc
+  #           yarn test
 
   deploy:
     <<: *defaults
@@ -63,12 +63,13 @@ workflows:
   install-test-deploy:
     jobs:
       - install
-      - test:
-          requires:
-            - install
+      # - test:
+      #     requires:
+      #       - install
       - deploy:
           requires:
-            - test
+            # - test
+            - install
           filters:
             branches:
               only:
